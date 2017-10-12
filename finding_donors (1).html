@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -12084,7 +12084,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Total number of records</span>
@@ -12858,7 +12858,7 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import sklearn.preprocessing.StandardScaler</span>
@@ -13310,7 +13310,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
@@ -13322,13 +13322,14 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <span class="sd">FN = 0 # No predicted negatives in the naive case</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="c1"># TODO: Calculate accuracy, precision and recall</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="mf">0.2478</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">)</span><span class="o">/</span><span class="n">n_records</span>  <span class="c1">#Accuracy=no of records above 50K/total no of records</span>
 <span class="n">recall</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">precision</span> <span class="o">=</span> <span class="mf">0.2478</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">accuracy</span>                       <span class="c1">#Recall=Accuracy</span>
 
 <span class="c1"># TODO: Calculate F-score using the formula above for beta = 0.5 and correct values for precision and recall.</span>
 <span class="c1"># HINT: The formula above can be written as (1 + beta**2) * (precision * recall) / ((beta**2 * precision) + recall)</span>
-<span class="n">fscore</span> <span class="o">=</span> <span class="mf">0.2916</span>
+<span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">fscore</span> <span class="o">=</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">beta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">beta</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span><span class="p">)</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
 
 <span class="c1"># Print the results </span>
 <span class="k">print</span> <span class="s2">&quot;Naive Predictor: [Accuracy score: {:.4f}, F-score: {:.4f}]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">fscore</span><span class="p">)</span>
@@ -13348,7 +13349,7 @@ It is a ratio of true positives(words classified as spam, and which are actually
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Naive Predictor: [Accuracy score: 0.2478, F-score: 0.2916]
+<pre>Naive Predictor: [Accuracy score: 0.2478, F-score: 0.2917]
 </pre>
 </div>
 </div>
@@ -14406,7 +14407,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li><p>RandomTree Classifier is an ensemble classifier that consists of many decision trees and outputs the class that is the mode of the class's output by individual trees. Decision trees are individual learners that are combined. They are one of the most popular learning methods commonly used for data exploration. t is one of the most accurate learning algorithms available. For many data sets, it produces a highly accurate classifier.It gives estimates of what variables are important in the classification.</p>
+<li><p>RandomTree Classifier is an ensemble classifier that consists of many decision trees and outputs the class that is the mode of the class's output by individual trees. Random Forests are individual learners that are combined. Ensembles are a divide-and-conquer approach used to improve performance. The main principle behind ensemble methods is that a group of “weak learners” can come together to form a “strong learner”. Each classifier, individually, is a “weak learner,” while all the classifiers taken together are a “strong learner”.They are one of the most popular learning methods commonly used for data exploration. t is one of the most accurate learning algorithms available. For many data sets, it produces a highly accurate classifier.It gives estimates of what variables are important in the classification.For more info visit <a href='http://blog.echen.me/2011/03/14/laymans-introduction-to-random-forests/'>here.</a></p>
 </li>
 <li><p>For prediction a new sample is pushed down the tree. It is assigned the label of the training sample in the terminal node it ends up in. This procedure is iterated over all trees in the ensemble, and the average vote of all trees is reported as random forest prediction.
 (Reference:Predrag Radenković 3237/10
